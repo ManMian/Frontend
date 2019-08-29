@@ -57,6 +57,7 @@ a {
 .main>.tops>.top>.nav>.questionmark {
     font-size: 2rem;
     /*margin: 0 1rem 0 0.5rem;*/
+    padding: 0 0 0 1rem;
 }
 .main>.tops>.top>.user {
     font-size: 2rem;

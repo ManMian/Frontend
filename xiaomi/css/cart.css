@@ -46,7 +46,6 @@ a {
 }
 .main>.bottom-nav .item div{
     font-size: 2.5rem;
-
     display: flex;
     align-content: center;
     justify-content: center;
@@ -127,6 +126,7 @@ a {
 }
 .main .m .d1 {
     font-size: 1.66756rem;
+    color: #000000;
 }
 .main .m .d2 {
     font-size: 1.25067rem;
@@ -157,6 +157,7 @@ a {
 .main>.img {
     width: 37.52rem;
     height: 6.253rem;
+    margin:  0 0 0.3rem 0;
 }
 .main>.img img {
     width: inherit;
