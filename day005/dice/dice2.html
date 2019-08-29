@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>双点骰子</title>
+    <style>
+        .main {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            display: flex;
+            /*justify-content: space-between;*/
+           /* flex-direction: column;
+            justify-content: space-between;*/
+            /*flex-direction: column;
+            justify-content: space-between;
+            align-items: center;*/
+            /*flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;*/
+            justify-content: space-between;
+        }
+        .main .item {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 50%;
+        }
+        .main .box2 {
+            /*align-self: center;*/
+            align-self:flex-end ;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="item box1"></div>
+        <div class="item box2"></div>
+    </div>
+</body>
+</html>

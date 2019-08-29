@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>六点骰子</title>
+    <style>
+        .main {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+           /* align-content: space-between;
+            flex-direction: column;*/
+        }
+        .main .item {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 50%;
+        }
+       /* .main .box5 {
+            align-self: center;
+        }!!!!!!!!!!!!!父元素限制，子元素设置不起作用*/
+        .main .row:nth-child(2){
+
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="row">
+        <div class="item box1"></div>
+        <div class="item box2"></div>
+        <div class="item box3"></div>
+    </div>
+    <div class="row">
+        <div class="item box4"></div>
+        <div class="item box6"></div>
+    </div>
+    <div class="row">
+        <div class="item box5"></div>
+    </div>
+
+
+</div>
+</body>
+</html>
