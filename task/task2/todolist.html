@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>todolist</title>
+</head>
+<body>
+    <input type="text" id="wenben">
+    <input type="button" id="add3" value="提交">
+    <br>
+    待办事项：<ul id="unaccomplished"></ul>
+    完成事项：<ul id="complete"></ul>
+
+    <script>
+        /*add1();
+        add2();*/
+        var unaccomplished = [];
+        var complete = [];
+        function add1() {
+            var x = document.getElementById('wenben').value;
+            // console.log(x);
+            unaccomplished.push(x);
+            var s = '';
+            var i = 0;
+            for (var item of unaccomplished) {
+                s += '<li>'+ '<input type="radio" id="co'+ i++ +'">' + item +'</li>';
+            }
+            document.getElementById('unaccomplished').innerHTML = s;
+            console.log(i);
+        }
+        function add2() {
+            var s = '';
+            for (var item of complete) {
+                s += '<li>'+ item +'</li>';
+            }
+            document.getElementById('complete').innerHTML = s;
+        }
+        function coa(num){
+            var inputs= unaccomplished.splice(num,1);
+            // document.getElementById("co")
+            complete.push(inputs);
+            add2();
+        }
+        //事件绑定
+        document.getElementById("add3").addEventListener("click", function(){
+            add1();
+          /*  add2();*/
+            document.getElementById("co0").addEventListener("click", function(){
+                /*reduce();*/
+                coa(1);
+                console.log("++++++++++++++");
+            });
+        });
+
+    </script>
+</body>
+</html>

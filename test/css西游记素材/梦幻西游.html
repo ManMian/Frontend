@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>梦幻西游</title>
+
+    <!-- IMPORT CSS -->
+    <link rel="stylesheet" href="css/reset.min.css">
+    <style>
+        html,
+        body,
+        .container {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            background: url('image/pic.png') no-repeat;
+            background-size: cover;
+        }
+
+        .content {
+            /* 上 右 下 左 / 上 左右 下 / 上下 左右 / 四个方向都是 */
+            margin: 280px auto 0;
+            width: 780px;
+            display: flex;
+        }
+
+        .content div {
+            width: 200px;
+            height: 180px;
+        }
+
+        .content div.person {
+            width: 170px;
+            height: 240px;
+        }
+
+        .content div.sand {
+            width: 210px;
+            height: 200px;
+        }
+        .content div.monkey {
+            width: 200px;
+            height: 180px;
+        }
+        .content div.pig {
+            width:200px;
+            height: 180px;
+        }
+
+        /*
+         *  动画的原理：
+         *    1.我们把大图作为盒子的背景（大图是盒子的N倍，大图中包含元素运动的每一个步骤的样式，而每一步占据的大小都是盒子的大小，这是实现的基本要求）
+         *    2.我们通过帧动画，控制背景图一直向左移动（每一次移动或者是每一步正好移动200PX(盒子本身宽度) ） 
+         */
+        .monkey {
+            background: url('image/west_01_3ca39fe.png');
+            background-position: 0 0;
+            /* 运动方式不是匀速而是固定步长的方式 */
+            animation: monkeyMove 1s steps(8) infinite both;
+        }
+
+        @keyframes monkeyMove {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -1600px 0;
+            }
+        }
+
+        .person {
+            background: url('image/west_03_f962447.png');
+            background-position: 0 0;
+            transform: translateY(-30px);
+            animation: personMove 1s steps(8) infinite both;
+        }
+
+        @keyframes personMove {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -1360px 0;
+            }
+        }
+
+        /* 有空格是后代筛选，没有空格是同级二次筛选 */
+        /* div .monk{}
+        div.monk{} */
+        .pig{
+            background: url('image/west_02_47bad19.png');
+            background-position: 0 0;
+            animation: pigMove 1s steps(8) infinite both;
+        }
+
+        @keyframes pigMove {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -1600px 0;
+            }
+        }
+        .sand{
+            background: url('image/west_04_6516d80.png');
+            background-position: 0 0;
+            animation: sandMove 1s steps(8) infinite both;
+        }
+
+        @keyframes sandMove {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -1680px 0;
+            }
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="monkey"></div>
+            <div class="pig"></div>
+            <div class="person"></div>
+            <div class="sand"></div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

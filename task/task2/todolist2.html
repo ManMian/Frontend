@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" onkeypress="addTodo(event)" id="inputTodo">
+<!--<input type="button" value="确认">-->
+<br>
+待办事项：
+<ul id="todo">
+</ul>
+已完成：
+<ul id="finished">
+
+</ul>
+<script>
+    const ENTER_CODE = 13;
+    var todo = [];
+    var finished = [];
+    function renderTodo() {
+        var s = '';
+        // for(var item of todo){
+        // }
+        todo.forEach(function (item,index) {
+            s += '<li><span>' + item + '</span><button type="button" onclick="addFinished(' + index + ')">完成</button><button type="button" onclick="deleteTodo(' + index + ')">删除</button></li>';
+        });
+        document.getElementById('todo').innerHTML = s;
+    }
+    renderTodo();
+    function renderFinished() {
+        var s = '';
+        // for(var item of finished){
+        // }
+        finished.forEach(function (item,index) {
+            s += '<li><span>' + item + '</span><button type="button" onclick="deleteFinished(' + index + ')">删除</button></li>';
+        });
+        document.getElementById('finished').innerHTML = s;
+    }
+    renderFinished();
+
+    /**
+     * event叫做事件对象，这个对象里面包含此次事件的所有信息
+     * @param event
+     */
+    function addTodo(event) {
+        //判断键盘是否是回车
+        if (event.which ===ENTER_CODE) {
+        //    1.获得输入框的值
+            var inputTodo = document.getElementById('inputTodo');
+            //inputTodo.value 取value值
+            //inputTodo.value='';赋值
+            var value = inputTodo.value;
+            //    2.判断是否是空
+            if (value!=='') {
+                //    3.将数据插入到Todo数组中
+                todo.push(value);
+                //    4.将输入框清空
+                inputTodo.value = '';
+            //    刷新todo局部页面
+                renderTodo();
+            }
+        }
+    }
+    function deleteTodo(row) {
+    //    你知道点击哪行按钮吗
+    //    删除指定行数据
+        todo.splice(row,1);
+        renderTodo();
+    }
+    function addFinished(row) {
+        finished.push(todo.splice(row,1));
+        renderTodo();
+        renderFinished();
+    }
+    function deleteFinished(row) {
+        finished.splice(row,1);
+        renderFinished();
+    }
+</script>
+</body>
+</html>
