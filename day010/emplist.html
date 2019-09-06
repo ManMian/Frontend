@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>工资</th>
+            <th>部门</th>
+        </tr>
+    <tbody id="tb">
+    </tbody>
+    </table>
+    <script>
+        //简单封装
+        function ajax(param){
+            //1、创建连接对象
+            var xhr = new XMLHttpRequest();
+            //2、打开请求
+            /*请求方法
+            * get、post两种
+            * */
+            xhr.open(param.method,param.url);
+            //3、绑定处理函数
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4){
+                    //回调param对象的success方法传递数据过去
+                    param.success(xhr.responseText);
+                }
+            };
+            //4、发送请求
+            xhr.send();
+        }
+        //使用上边的ajax方法，传入参数对象
+        ajax({
+           method:'get',
+           url:'mock.json',
+           success: function (res) {
+               /*console.log(res);
+               console.log(typeof res);*/
+               res = JSON.parse(res);
+              /* console.log(res);
+               console.log(typeof res);*/
+               var s = '';
+               for (item of res) {
+                   // s += '<tr><td>'+ item.name +'</td></tr>';
+                   s += `<tr><td>${item.name}</td><td>${item.age}</td><td>${item.salary}</td><td>${item.dept}</td></tr>`
+               }
+               // console.log(s);
+               document.getElementById('tb').innerHTML = s;
+           }
+        });
+    </script>
+</body>
+</html>
